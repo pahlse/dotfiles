@@ -1,0 +1,33 @@
+# You can add comments to these files with #
+cac ${XDG_CACHE_HOME:-$HOME/.cache}
+cf  ${XDG_CONFIG_HOME:-$HOME/.config}
+dt  ${XDG_DATA_HOME:-$HOME/.local/share}
+
+h   $HOME
+dd  ${XDG_DOWNLOAD_DIR:-$HOME/downloads}
+prv ${XDG_DOCUMENTS_DIR:-$HOME/docs/private}
+ws  ${XDG_DOCUMENTS_DIR:-$HOME/docs/private/websites/pahlse.xyz}
+eth ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth}
+ww  ${XDG_DOCUMENTS_DIR:-$HOME/docs/work}
+ba  ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth/bachelor.thesis}
+mm  ${XDG_MUSIC_DIR:-$HOME/audio/music}
+pc  ${XDG_MUSIC_DIR:-$HOME/audio/podcasts}
+ab  ${XDG_MUSIC_DIR:-$HOME/audio/abooks}
+pp  ${XDG_PICTURES_DIR:-$HOME/pics}
+vv  ${XDG_VIDEOS_DIR:-$HOME/videos}
+lb  ${XDG_VIDEOS_DIR:-$HOME/library}
+gt  ${XDG_VIDEOS_DIR:-$HOME/git}
+
+mn  /mnt
+hdd /mnt/hdd
+and /mnt/android
+usb1 /mnt/usb1
+usb2 /mnt/usb2
+pb /mnt/polybox
+nas /mnt/nas
+sd /mnt/sd
+nsm /mnt/nas/Movies
+nst /mnt/nas/TV-Shows
+
+sc  $HOME/.local/bin
+src $HOME/.local/src

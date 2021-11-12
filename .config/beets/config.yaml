@@ -1,0 +1,62 @@
+directory: ~/audio/music
+library: ~/.config/beets/library.db
+plugins: fetchart embedart lastgenre edit fromfilename discogs #lyrics
+
+paths:
+    default: $genre/$albumartist/$album%aunique{}/$track.$title
+    singleton: Non-Album/$artist/$title
+    comp: Compilations/$album%aunique{}/$track.$title
+    albumtype:soundtrack: Soundtracks/$album/$track.$title
+
+replace:
+    '[\\/]': .
+    '^\.': .
+    '[\x00-\x1f]': .
+    '[<>:"\?\*\|]': ''
+    '\.$': .
+    '\s+$': ''
+    '^\s+': ''
+    ' ': .
+    '_': .
+    '&': 'and'
+threaded: yes
+
+discogs:
+    user_token: GmHlrjsrNUIzVZMdOrKoxwmGVrlNUQoWuuoGHvWQ
+
+fetchart:
+    cautious: true
+    google_key: AIzaSyDQOxTw8qfB0TsPVwIwpAuRKWE4GUzMUfQ
+    cover_names: front cover
+    sources:
+        - filesystem
+        - google
+        - coverart: release
+        - itunes
+        - coverart: releasegroup
+        - '*'
+
+embedart:
+    maxwidth: 300
+
+lastgenre:
+    auto: yes
+    count: 1
+    force: no
+    source: artist
+    canonical: yes
+
+#lyrics:
+    #    fallback: ''
+    #    google_API_key: AZERTYUIOPQSDFGHJKLMWXCVBN1234567890_ab
+    #    google_engine_ID: 009217259823014548361:lndtuqkycfu
+
+edit:
+    itemfields: track title artist album genre
+    albumfields: album albumartist genre date
+
+import:
+    write: yes
+    move: yes
+    resume: ask
+    log: beetslog.txt

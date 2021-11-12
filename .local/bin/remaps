@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# This script is called on startup to remap keys.
+# Increase key speed via a rate change
+xset r rate 300 50
+
+# Set keyboard layout to de_CH
+setxkbmap ch
+
+# Swap Escape and Caps Lock
+xmodmap -e 'keycode 9 = Caps_Lock'
+
+# Set Caps Lock to Mode Switch
+spare_modifier="Mode_switch"
+xmodmap -e "keycode 66 = $spare_modifier"
+xmodmap -e "keycode 900 = Escape"
+
+# Use Caps Lock as Escape on single press
+killall xcape 2>/dev/null ; xcape -e "$spare_modifier=Escape"
+
+# Map the menu button to right super as well.
+#xmodmap -e 'keycode 105 = Super_R'
+
+# Remap [] and {} to shift posititon for conveniance
+xmodmap -e 'keycode 51 = dollar braceright dollar braceright sterling dead_breve'
+xmodmap -e 'keycode 47 = odiaeresis eacute Odiaeresis eacute eacute'
+xmodmap -e 'keycode 48 = adiaeresis braceleft Adiaeresis braceleft agrave dead_caron braceleft'
+xmodmap -e 'keycode 34 = udiaeresis bracketleft Udiaeresis bracketleft egrave dead_abovering egrave'
+xmodmap -e 'keycode 35 = exclam bracketright exclam bracketright dead_diaeresis dead_macron dead_diaeresis dead_macron'
+#xmodmap -e 'keycode 94 = greater less greater less backslash'
+
+## Run the following command to see which key you are pressing:
+#  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'

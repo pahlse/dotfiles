@@ -1,0 +1,8 @@
+#!/bin/sh
+if ifconfig tun0 | grep -q "00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
+then
+	sudo vpnc-disconnect && notify-send "Disconnecting from VPN..."
+else
+	sudo vpnc && notify-send "Connecting to VPN..." "VPN currently connected to ETH servers."
+fi
+sleep 3 && pkill -RTMIN+7 "${STATUSBAR:-dwmblocks}"

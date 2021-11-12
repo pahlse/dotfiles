@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Set screen resolution to something readable
+xrandr --output eDP1 --mode 1600x900 --rate 60

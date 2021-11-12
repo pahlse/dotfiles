@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# This Script Goes in Root Folder of TV show -- Example Folder Structure
+# /Stargate/Season\ 1/Epiosde.avi
+# /Stargate/Season\ 2/Epiosde.avi
+# /Stargate/handbrake_folder.script
+# Outputs all Files back inside same dir's and does all folders inside Startgate DIR
+# /Stargate/Season\ 1/Epiosde.mp4
+# /Stargate/Season\ 2/Epiosde.mp4
+
+START1='H.264 MKV '
+START2='H.265 MKV '
+END1='p30'
+END2='p25'
+
+if [ -z "$1" ] ; then
+TRANSCODEDIR="."
+else
+TRANSCODEDIR="$1"
+fi
+
+shopt -s globstar
+for i in **/*.mp4;
+do
+	# If Cpu Temp is too high the loop will terminate
+	HEIGHT="$(ffprobe -v error -select_streams v -show_entries stream=height -of json "$i" | perl -lane 'print $1 if /(\d+)/')" &&
+	if [ "$HEIGHT" == 576 ] ; then
+		PRESET="$START1$HEIGHT$END2"
+	else
+		PRESET="$START1$HEIGHT$END1"
+	fi &&
+	echo "$i": "$PRESET" &&
+	HandBrakeCLI -i "$i" -o "${i%.*}".c.mkv --preset "$PRESET" --all-audio --all-subtitles --subtitle-burned=none;
+#	rm "$i"
+done

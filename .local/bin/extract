@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#
+# Usage: extract Title.Name
+#
+# Use this in conjunction with handbrake-server.pl making the savePath the same as the handbrake-server.pl -s savePath
+#
+
+
+savePath=~/downloads
+titleName=$1
+
+MAKEMKVCON="/usr/bin/makemkvcon"
+
+echo ":: Title $titleId will be extracted"
+echo ":: Making directory ($savePath/$titleName)"
+mkdir -p "$savePath/$titleName"
+echo ":: Running - makemkvcon mkv disc:0 all \"$savePath/$titleName\""
+echo ":: Waiting 5 seconds to prevent disc error..."
+sleep 5
+$MAKEMKVCON mkv disc:0 all "$savePath/$titleName"
+eject

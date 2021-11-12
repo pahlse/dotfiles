@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for x in mount umount sv pacman updatedb su ; do
+	alias $x="sudo $x"
+done
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+        dic="dict -d"\
+	R="R --quiet" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl -f bestvideo+bestaudio --add-metadata --write-sub --embed-subs -i" \
+	yta="yt -x -f bestaudio" \
+	ytp="yt -x --audio-format opus" \
+	ffmpeg="ffmpeg -hide_banner" \
+	combine="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf " \
+	mmkv="sudo modprobe sg && makemkv" \
+	ej="eject -T"\
+	soffice="soffice --headless --convert-to pdf"\
+    bibtool="bibtool -f '%-1n(author).%4d(year)'"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	d1="du -d 1 -h" \
+	d2="du -d 2 -h" \
+	d3="du -d 3 -h" \
+	d4="du -d 4 -h" \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query" \
+	z="zathura" \
+	l="libreoffice" \
+	lrc="sudo /usr/bin/rsync -aAXv --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/lost+found','/home/elias/*'} --log-file=/tmp/rsync.pahlse.system.log -e ssh / root@192.168.1.20:/volume1/home/pahlse/linux.system/" \
+	urc="sudo /usr/bin/rsync -aAXv --delete --exclude={,'/home/*/.thumbnails/','/home/*/.cache/*','/home/*/*/whatsapp-nativefier*/','/home/*/*/TelegramDesktop/'} --log-file=/tmp/rsync.pahlse.shared.log -e ssh /home/elias/ root@192.168.1.20:/volume1/home/pahlse/linux.user/" \
+    wrc="sudo /usr/bin/rsync -rtvzP -e 'ssh -i /home/elias/.ssh/id_pahlse.xyz' --delete /home/elias/docs/private/websites/pahlse.xyz/ root@pahlse.xyz:/var/www/pahlse.xyz"
+alias \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \

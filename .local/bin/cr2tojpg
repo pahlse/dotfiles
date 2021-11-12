@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# A small script that converts .cr2 raw image files to .jpg. The user can choose
+# what image size the jpg files will be saved at. Optionally the user can also
+# compress MP4 files.
+
+# Nessesary packages: exiftool, imagemagick, ffmpeg
+
+[ -z "$1" ] && [ ! -f "$1" ] && dir=$PWD || dir=$1
+
+if [ -n "$(ls -A $dir 2>/dev/null | grep MP4)" ]; then
+    read -p "  (y/n) | Do you want to compress .mp4 files?: " convert
+fi
+
+read -p "(%/nxn) | Image resolution: " res
+
+echo "\n> Renaming .CR2 files to date taken..."
+exiftool -ext cr2 '-FileName<CreateDate' -d IMG-%Y%m%d-%H%M%%-02.c.%%e $dir
+
+if [ -n "$(ls -A $dir 2>/dev/null | grep MP4)" ]; then
+    echo "> Renaming .MP4 files to date taken..."
+    exiftool -ext mp4 '-FileName<CreateDate' -d VID-%Y%m%d-%H%M%%-02.c.%%e $dir
+fi
+
+echo "> Extracting preview image from .CR2 files..."
+exiftool -previewimage -w .jpg -ext cr2 -b $dir
+
+echo "> Writing .CR2 metadata to .jpg files..."
+exiftool -tagsfromfile %d%f.CR2 -all:all -r -overwrite_original -ext jpg $dir
+
+if [ ! -z "$res" ] && [ ! "$res" = "100%" ]; then
+    echo "\n> Resizing .JPG files..."
+    for image in $dir/*.jpg; do
+        echo "Converting:" "${image#*/}"
+        mogrify -resize $res "$image";
+    done
+else
+    echo "> Leaving .jpg files at original file size."
+fi
+
+if [ "$convert" = "y" ] && [ -n "$(ls -A $dir 2>/dev/null | grep MP4)" ]; then
+
+    echo "\n> Compressing .MP4 files..."
+    for video in $dir/*MP4; do
+        echo "Compressing:" "${video#*/}"
+        ffmpeg -i "$video" -hide_banner -loglevel error -stats -c:v libx265 -x265-params log-level=error -crf 18 -preset ultrafast -c:a aac -b:a 128k "${video%.*}.mp4";
+    done
+
+    echo "> Writing .MP4 metadata to .mp4 files..."
+    exiftool -tagsfromfile %d%f.MP4 -all:all -r -overwrite_original -ext mp4 $dir
+
+    [ -d $dir/sources ] || mkdir $dir/sources
+    mv $dir/*.MP4 $dir/sources
+fi
+
+[ -d $dir/sources ] || mkdir $dir/sources
+mv $dir/*.CR2 $dir/sources

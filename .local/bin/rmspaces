@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+find . \( -name '* *' -or -name '*_*' -or -name '*&*' -or -name '*..*' -or -name '.*' -or -name '*.-.*' \) -execdir sh -c 'mv -v "$1" "$(echo "$1" \
+	| tr -d "{()},\!'\''" \
+	| sed -r "s/[ _.]+/./g" \
+	| sed -r "s/^.\/\./.\//g" \
+	| sed -r "s/\.\-\././g" \
+	| sed -r "s/\-\././g" \
+	| sed -r "s/\.\-/./g" \
+	| sed "s/&/und/g")"' \
+_ {} \;
+
+find . \( -name '.*' \) -execdir sh 'mv -v "$1" "${1#.}"' _ {} \;

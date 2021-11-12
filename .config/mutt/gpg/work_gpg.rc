@@ -1,0 +1,6 @@
+set pgp_default_key="0x7E2F02C0"
+set pgp_sign_as ="0x7E2F02C0"
+set pgp_check_gpg_decrypt_status_fd
+set pgp_use_gpg_agent = yes
+set pgp_self_encrypt = no
+set pgp_autosign = yes

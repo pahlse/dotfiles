@@ -1,0 +1,50 @@
+IMAPStore pahlse@student.ethz.ch-remote
+Host mail.ethz.ch
+Port 993
+User pahlse
+PassCmd "pass pahlse@student.ethz.ch"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore pahlse@student.ethz.ch-local
+Subfolders Verbatim
+Path /home/elias/.local/share/mail/pahlse@student.ethz.ch/
+Inbox /home/elias/.local/share/mail/pahlse@student.ethz.ch/INBOX
+
+Channel pahlse@student.ethz.ch
+Expunge Both
+Far :pahlse@student.ethz.ch-remote:
+Near :pahlse@student.ethz.ch-local:
+Patterns "INBOX" "Drafts" "SAE" "Newsletter" "Sent" "Junk Email" "Trash"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore pahlse@pm.me-remote
+Host 127.0.0.1
+Port 1143
+User pahlse@pm.me
+PassCmd "pass pahlse@pm.me"
+AuthMechs LOGIN
+SSLType None
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore pahlse@pm.me-local
+Subfolders Verbatim
+Path /home/elias/.local/share/mail/pahlse@pm.me/
+Inbox /home/elias/.local/share/mail/pahlse@pm.me/INBOX
+
+Channel pahlse@pm.me
+Expunge Both
+Far :pahlse@pm.me-remote:
+Near :pahlse@pm.me-local:
+Patterns INBOX Drafts Sent Spam Trash Archive
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

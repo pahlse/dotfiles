@@ -1,0 +1,21 @@
+account pahlse@pm.me
+host 127.0.0.1
+port 1025
+from pahlse@pm.me
+user pahlse@pm.me
+passwordeval "pass pahlse@pm.me"
+auth login
+tls_fingerprint A8:52:4B:51:B4:A5:7A:EF:8F:99:39:B5:E6:1B:43:67:21:F7:79:7F:AA:D8:3A:8D:22:23:3E:29:1E:E5:91:44
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/elias/.config/msmtp/msmtp.log
+
+account pahlse@student.ethz.ch
+host mail.ethz.ch
+port 587
+from pahlse@student.ethz.ch
+user pahlse
+passwordeval "pass pahlse@student.ethz.ch"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/elias/.config/msmtp/msmtp.log

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+walk_dir() {
+    shopt -s nullglob dotglob
+
+    for pathname in "$1"/*; do
+        if [ -d "$pathname" ]; then
+            walk_dir "$pathname"
+        else
+	    case "$pathname" in
+		*1080p_BluRay.mkv)
+	    	    file=${pathname##*/} &&
+	    	    HandBrakeCLI -e x265 --encoder-preset faster -x strong-intra-smoothing=0:rect=0:aq-mode=1 -q 22 -r 30 --audio-lang-list fre, eng, spa, nld, deu, ita  --all-audio -E aac -B  48000 -6 stereo --subtitle-lang-list fre, eng, spa, nld, deu, ita --all-subtitles -i "$pathname" -o "/mnt/hdd/Filme/$file";;
+	    	*/extras/*.mkv)
+	    	    file=${pathname##*/} &&
+	    	    HandBrakeCLI -e x265 --encoder-preset medium -x strong-intra-smoothing=0:rect=0:aq-mode=1 -q 10 -r 25 --audio-lang-list fre, eng, spa, nld, deu, ita  --all-audio -E aac -B  48000 -6 stereo --subtitle-lang-list fre, eng, spa, nld, deu, ita --all-subtitles -i "$pathname" -o "/mnt/hdd/Filme/$file";;
+	    esac
+    	fi
+    done
+}
+
+walk_dir "$1"

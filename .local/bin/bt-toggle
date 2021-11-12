@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# If bluetooth.service is running, will ask to kill, else will ask to start.
+
+if pidof bluetoothd >/dev/null ;
+then
+	sudo systemctl stop bluetooth.service && notify-send "bluetooth disabled."
+else
+	ifinstalled bluez || exit
+	sudo systemctl start bluetooth.service && notify-send "bluetooth enabled."
+fi
+sleep 1 && pkill -RTMIN+7 "${STATUSBAR:-dwmblocks}"

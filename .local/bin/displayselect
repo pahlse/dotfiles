@@ -16,7 +16,7 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
         primary=$(echo "$screens" | head -1)
         secondary=$(echo "$screens" | grep -v "$primary")
 
-        res_primary="$res_far"
+        res_primary="$res_close"
         # res_primary=$(xrandr --query | grep ^"$primary" | sed 's/+.*//' | sed 's/.* //')
         res_secondary=$(xrandr --query | sed -n "/^$secondary/,/\+/p" | \
             tail -n 1 | awk '{print $1}')

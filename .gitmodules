@@ -55,3 +55,6 @@
 [submodule ".config/nvim/plugged/vim-renumber"]
 	path = .config/nvim/plugged/vim-renumber
 	url = https://github.com/clarke/vim-renumber
+[submodule ".config/mpv/scripts/mpvSockets"]
+	path = .config/mpv/scripts/mpvSockets
+	url = https://github.com/wis/mpvSockets

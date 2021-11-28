@@ -1,0 +1,71 @@
+#!/bin/bash
+
+function helpmenu() {
+    cat <<USAGE
+
+    This script copies one of my templates from ~/texmf/templates/ to the
+    current working dir, renames the template, and executes vim on the file.
+
+    Usage: $0 [-t tag] [name of file]
+
+    Options:
+        -a,  --article:      latex article template
+        -m,  --markdown:     markdown article template
+        -mb, --metro-beamer: metropolis beamer template
+        -eb, --eth-beamer:   eth beamer template
+        -l,  --letter:       latex letter template
+        -p,  --poster:       latex poster template
+
+USAGE
+    exit 1
+}
+
+if [ $# -eq 0 ]; then
+    helpmenu
+    exit 1
+fi
+
+while [ ! $# -eq 0 ]
+do
+	case "$1" in
+		--help | -h)
+			helpmenu
+			exit
+			;;
+		--article | -a)
+            cp $HOME/texmf/templates/latex-article-template.tex ./$2.tex &&
+            nvim ./$2.tex
+			exit
+			;;
+		--markdown | -m)
+            cp $HOME/texmf/templates/markdown-article-template.md ./$2.md &&
+            nvim ./$2.md
+			exit
+			;;
+		--metro-beamer | -mb)
+            cp $HOME/texmf/templates/metropolis-beamer-template.tex ./$2.tex &&
+            nvim ./$2.tex
+			exit
+			;;
+		--eth-beamer | -eb)
+            cp $HOME/texmf/templates/eth-beamer-template.tex ./$2.tex &&
+            nvim ./$2.tex
+			exit
+			;;
+		--letter | -l)
+            cp $HOME/texmf/templates/eth-letter-template.tex ./$2.tex &&
+            nvim ./$2.tex
+			exit
+			;;
+		--poster | -p)
+            cp $HOME/texmf/templates/eth-poster-template.tex ./$2.tex &&
+            nvim ./$2.tex
+			exit
+			;;
+		*)
+            helpmenu
+			exit
+			;;
+	esac
+	shift
+done

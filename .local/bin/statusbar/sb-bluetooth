@@ -1,0 +1,13 @@
+#!/bin/sh
+
+device=$(pamixer --list-sinks | awk '/bluez/ {print $1}')
+
+case $BLOCK_BUTTON in
+	1) setsid -f "$TERMINAL" -e pulsemixer ;;
+	2) pamixer -t ;;
+	3) notify-send "Connected to" "$device" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+systemctl status bluetooth | awk '/running/ {print "📘bt"}'
+systemctl status bluetooth | awk '/dead/ {print "📙bt"}'

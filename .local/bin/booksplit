@@ -10,6 +10,8 @@ echo "Enter the artist/author:"; read -r author
 
 echo "Enter the publication year:"; read -r year
 
+echo "Enter the genre:"; read -r genre
+
 inputaudio="$1"
 
 # Get a safe file name from the book.
@@ -33,7 +35,7 @@ do
 	file="$escbook/$(printf "%.2d" "$track").$esctitle.$ext"
 	[ -n "$start" ] && echo "Splitting \"$title\"..." &&
    	ffmpeg -nostdin -y -loglevel -8 -i "$inputaudio" -ss "$start" -to "$end" -vn -c copy "$file" &&
-	echo "Tagging \"$title\"..." && tag -a "$author" -A "$booktitle" -t "$title" -n "$track" -N "$total" -d "$year" "$file"
+	echo "Tagging \"$title\"..." && tag -a "$author" -A "$booktitle" -t "$title" -n "$track" -N "$total" -d "$year" -g "$genre" "$file"
 	title="$(echo "$x" | cut -d' ' -f 2-)"
 	esctitle="$(echo "$title" | tr -d '[:punct:]' | tr ' ' '.' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
 	track="$((track+1))"

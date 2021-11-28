@@ -51,6 +51,7 @@ case "$ext" in
 			-V fontsize=11pt \
 			--highlight-style=kate \
 			--citeproc \
+            --strip-comments \
 			-o "$base".pdf "$file"
 		fi ; ;;
 	mom) preconv "$file" | refer -PS -e | groff -mom -kept -T pdf > "$base".pdf ;;

@@ -13,7 +13,7 @@ done
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-        dic="dict -d"\
+    dic="dict -d"\
 	R="R --quiet" \
 	cp="cp -iv" \
 	mv="mv -iv" \
@@ -29,6 +29,10 @@ alias \
 	ej="eject -T"\
 	soffice="soffice --headless --convert-to pdf"\
     bibtool="bibtool -f '%-1n(author).%4d(year)'"
+
+alias \
+    stopwatch="termdown"\
+    timer="termdown"
 
 # Colorize commands when possible.
 alias \

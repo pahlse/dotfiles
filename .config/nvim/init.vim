@@ -7,6 +7,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
+
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'ncm2/ncm2'
@@ -14,7 +15,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'gaalcaras/ncm-R'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
-Plug 'edthedev/vim-commentary'
+Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
@@ -26,10 +27,23 @@ Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'ap/vim-css-color'
+Plug 'clarke/vim-renumber'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme gruvbox
+" let g:gruvbox_termcolors=16
+
+let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_vert_split='gray'
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+
+set bg=dark
+
 set title
-set bg=light
 set go=a
 set mouse=a
 set nohlsearch
@@ -67,14 +81,14 @@ set noshowcmd
 	vnoremap . :normal .<CR>
 
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+	map <leader>f :Goyo \| hi SpellBad cterm=underline,bold ctermfg=red \| set linebreak<CR>
 
 " Spell-check:
 	map <leader>en :setlocal spell! spelllang=en_us<CR>
 	map <leader>de :setlocal spell! spelllang=de_ch<CR>
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-"	set splitbelow splitright
+	set splitright splitbelow
 
 " Tabs & Navigation
 	map <leader>tn :tabnew<cr>    	" To create a new tab.
@@ -83,7 +97,7 @@ set noshowcmd
 	map <leader>tm :tabmove<cr>     " To move the current tab to next position.
 
 	map <tab>      :w \| tabn<cr>   " To swtich to next tab.
-	map <S-tab>    :w \| tabp<cr>   " To switch to previous tab.
+	map <s-tab>    :w \| tabp<cr>   " To switch to previous tab.
 
 	map <leader>tj :tabn<cr>        " To swtich to next tab.
 	map <leader>tk :tabp<cr>        " To switch to previous tab.
@@ -109,27 +123,33 @@ call deoplete#custom#var('omni', 'input_patterns', {
         \})
 
 " Vimtex TOC settings
-	map <leader>t :VimtexTocOpen<CR>
+filetype plugin indent on
+syntax enable
+let maplocalleader = ","
+
+map <leader>w :VimtexCountWords<CR>
+map <leader>w! :VimtexCountWords!<CR>
+map <leader>t :VimtexTocOpen<CR>
 
 let g:vimtex_toc_config = {
 	\ 'name' : 'TOC',
-        \ 'layers' : ['content', 'todo', 'include'],
-        \ 'split_width' : 30,
-        \ 'todo_sorted' : 0,
-        \ 'show_help' : 1,
-        \ 'show_numbers' : 1,
-        \ 'tocdepth' : 2,
+        \ 'layers' : ['content'],
+        \ 'split_width' :   30,
+        \ 'todo_sorted' :   1,
+        \ 'show_help' :     1,
+        \ 'show_numbers' :  1,
+        \ 'tocdepth' :      1,
         \}
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-h>"
-let g:UltiSnipsJumpBackwardTrigger="<c-l>"
-let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your window.
 
-" set spellcheck color
-	hi clear SpellBad
-	hi SpellBad cterm=underline ctermfg=red
+
+" Ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-l>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your window.
 
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
@@ -161,7 +181,8 @@ let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your 
 	map <leader>s :!clear && shellcheck -x %<CR>
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
+	map <leader>b :vsp<space>./bibliography/[a-z]*.bib<CR>
+	map <leader>a :vsp<space>$HOME/texmf/tex/latex/preambles/article_preamble.tex<CR>
 "	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
@@ -172,6 +193,9 @@ let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your 
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
+
+" Find placeholder char and insert cursor
+    map <space><space> /<++>df>i
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
@@ -190,7 +214,7 @@ let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your 
 
 " Enable Goyo by default for mutt writing
 	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
 	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
@@ -199,18 +223,15 @@ let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your 
 	autocmd BufWritePre * %s/\n\+\%$//e
 	autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
+" set spellcheck color
+	hi clear SpellBad
+    hi SpellBad cterm=underline,bold ctermfg=red
+
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost bm-files,bm-dirs !shortcuts
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
-	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
-" Recompile dwmblocks on config edit.
-	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
-
-" Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
-if &diff
     highlight! link DiffText MatchParen
-endif
 
 " Function for toggling the bottom statusbar:
 let s:hidden_all = 1

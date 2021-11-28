@@ -2,7 +2,7 @@
 *.alpha: 0.8
 
 !! Set a default font and font size as below:
-*.font: DejaVu Sans Mono:size=10
+*.font: monospace:size=10
 
 Xft.dpi: 192
 

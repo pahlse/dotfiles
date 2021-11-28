@@ -1,5 +1,23 @@
 #!/bin/sh
 
+# Sets the screen resolution on HdPI screens & how to handle external monitors.
+intern=eDP1
+extern=$(xrandr -q | awk '/ connected / {print $1}' | sed -n 2p)
+
+res_far=1368x768
+res_close=1600x900
+
+if [ -z "$extern" ]
+then
+    xrandr --output "$intern" --mode "$res_close"
+else
+    xrandr --output "$intern" --mode "$res_far" --primary --output "$extern" --auto --right-of "$intern" --auto
+fi
+
+DPI=96
+xrandr --dpi "$DPI"
+
+
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 

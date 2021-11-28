@@ -1,41 +1,5 @@
 <configuration version="35">
-    <folder id="3oylw-duo7m" label="Signal Pics" path="/home/elias/pics/signal" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
-        <filesystemType>basic</filesystemType>
-        <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
-            <encryptionPassword></encryptionPassword>
-        </device>
-        <device id="KJHDCZO-DL3FPN4-A2XSFM2-GY6CMFY-YV66HTD-IUVPHMZ-WRAJE7M-OODZ6QQ" introducedBy="">
-            <encryptionPassword></encryptionPassword>
-        </device>
-        <minDiskFree unit="%">1</minDiskFree>
-        <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
-            <fsPath></fsPath>
-            <fsType>basic</fsType>
-        </versioning>
-        <copiers>0</copiers>
-        <pullerMaxPendingKiB>0</pullerMaxPendingKiB>
-        <hashers>0</hashers>
-        <order>random</order>
-        <ignoreDelete>false</ignoreDelete>
-        <scanProgressIntervalS>0</scanProgressIntervalS>
-        <pullerPauseS>0</pullerPauseS>
-        <maxConflicts>10</maxConflicts>
-        <disableSparseFiles>false</disableSparseFiles>
-        <disableTempIndexes>false</disableTempIndexes>
-        <paused>false</paused>
-        <weakHashThresholdPct>25</weakHashThresholdPct>
-        <markerName>.stfolder</markerName>
-        <copyOwnershipFromParent>false</copyOwnershipFromParent>
-        <modTimeWindowS>0</modTimeWindowS>
-        <maxConcurrentWrites>2</maxConcurrentWrites>
-        <disableFsync>false</disableFsync>
-        <blockPullOrder>standard</blockPullOrder>
-        <copyRangeMethod>standard</copyRangeMethod>
-        <caseSensitiveFS>false</caseSensitiveFS>
-        <junctionsAsDirs>false</junctionsAsDirs>
-    </folder>
-    <folder id="akd4f-xearr" label="Vimwiki" path="/home/elias/vimwiki" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="hbofi-ryghv" label="Signal Videos" path="/home/elias/pics/signal/videos" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -71,7 +35,7 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <folder id="d9eux-rw64k" label="Audio" path="/home/elias/audio" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="kzcpt-zs9f4" label="Signal Pics" path="/home/elias/pics/signal/images" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -81,7 +45,7 @@
         </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
+            <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
         </versioning>
@@ -107,7 +71,7 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <folder id="evimy-zidvx" label="Gt-Sync" path="/home/elias/gt-sync" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="lgnai-9nwdt" label="Gt-Sync" path="/home/elias/gt-sync" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -117,7 +81,7 @@
         </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
+            <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
         </versioning>
@@ -143,7 +107,7 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <folder id="iwsok-zszz3" label="Signal Videos" path="/home/elias/pics/signal.videos" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="srvbp-wksuc" label="Audio" path="/home/elias/audio" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -153,7 +117,7 @@
         </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
+            <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
         </versioning>
@@ -179,7 +143,7 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <folder id="mkjh3-fqqvl" label="Camera" path="/home/elias/pics/android.camera" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="x7ltz-ucpd7" label="Whatsapp" path="/home/elias/pics/whatsapp" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -189,7 +153,7 @@
         </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
+            <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
         </versioning>
@@ -215,7 +179,7 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <folder id="ueamm-dtwvv" label="Whatsapp" path="/home/elias/pics/whatsapp" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="zmz53-zey9s" label="Camera" path="/home/elias/pics/android.camera" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="JG2OKUL-H47S3VQ-ET7U23P-RAESWE7-RCPDHR6-E33HKDW-IRHFANA-PCAN3AG" introducedBy="">
             <encryptionPassword></encryptionPassword>
@@ -225,7 +189,7 @@
         </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
-            <cleanupIntervalS>0</cleanupIntervalS>
+            <cleanupIntervalS>3600</cleanupIntervalS>
             <fsPath></fsPath>
             <fsType>basic</fsType>
         </versioning>

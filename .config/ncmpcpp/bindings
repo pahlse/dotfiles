@@ -177,12 +177,12 @@
 #def_key "backspace"
 #  replay_song
 #
-def_key "f"
-  seek_forward
-
-def_key "b"
-  seek_backward
-
+#def_key "f"
+#  seek_forward
+#
+#def_key "b"
+#  seek_backward
+#
 #def_key "r"
 #  toggle_repeat
 #
@@ -339,8 +339,8 @@ def_key "b"
 #def_key "A"
 #  add
 #
-def_key "p"
-  save_playlist
+#def_key "S"
+#  save_playlist
 #
 #def_key "o"
 #  jump_to_playing_song
@@ -401,7 +401,7 @@ def_key "p"
 #	find
 #def_key "f"
 #	find_item_forward
-#
+
 def_key "+"
     show_clock
 def_key "="
@@ -459,6 +459,8 @@ def_key "T"
 def_key "V"
   show_visualizer
 def_key "G"
+  move_end
+def_key "g"
   move_home
 #jump_to_position_in_song
 def_key "U"

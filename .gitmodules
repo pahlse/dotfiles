@@ -61,3 +61,6 @@
 [submodule ".config/nvim/plugged/gruvbox"]
 	path = .config/nvim/plugged/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule ".config/mpv/script_modules/mpvSockets"]
+	path = .config/mpv/script_modules/mpvSockets
+	url = https://github.com/seanbreckenridge/mpv-sockets

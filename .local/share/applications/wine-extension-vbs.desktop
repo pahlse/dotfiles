@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=wscript
-MimeType=text/vbscript;
-Exec=env WINEPREFIX="/home/elias/.photoshopCCV19/prefix" wine start /ProgIDOpen VBSFile %f
-NoDisplay=true
-StartupNotify=true
-Icon=B13E_wscript.0

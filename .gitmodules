@@ -64,3 +64,15 @@
 [submodule ".config/mpv/script_modules/mpvSockets"]
 	path = .config/mpv/script_modules/mpvSockets
 	url = https://github.com/seanbreckenridge/mpv-sockets
+[submodule "local/src/dmenu"]
+	path = local/src/dmenu
+	url = https://github.com/pahlse/dmenu
+[submodule "local/src/dwm"]
+	path = local/src/dwm
+	url = https://github.com/pahlse/dwm
+[submodule "local/src/st"]
+	path = local/src/st
+	url = https://github.com/pahlse/st
+[submodule "local/src/dwmblocks"]
+	path = local/src/dwmblocks
+	url = https://github.com/pahlse/dwmblocks

@@ -1,0 +1,35 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:Visualizer feed
+state: pause
+current: 0
+time: 123.936000
+random: 0
+repeat: 1
+single: 0
+consume: 1
+crossfade: 2
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/03.Proud.Mary.m4a
+1:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/04.Bad.Moon.Rising.m4a
+2:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/05.Lodi.m4a
+3:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/09.Fortunate.Son.m4a
+4:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/10.Travelin’.Band.m4a
+5:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/01.Susie.Q.opus
+6:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/02.I.Put.a.Spell.on.You.opus
+7:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/06.Green.River.opus
+8:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/07.Commotion.opus
+9:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/08.Down.on.the.Corner.opus
+10:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/14.Lookin’.out.My.Back.Door.m4a
+11:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/15.Long.as.I.Can.See.the.Light.m4a
+12:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/16.I.Heard.It.Through.the.Grapevine.m4a
+13:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/18.Hey.Tonight.m4a
+14:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/19.Sweet.Hitch‐Hiker.m4a
+15:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/11.Who’ll.Stop.the.Rain.opus
+16:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/12.Up.Around.the.Bend.opus
+17:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/13.Run.Through.the.Jungle.opus
+18:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/17.Have.You.Ever.Seen.the.Rain.opus
+19:music/Rock/Creedence.Clearwater.Revival/Chronicle.The.20.Greatest.Hits/20.Someday.Never.Comes.opus
+playlist_end

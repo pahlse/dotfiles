@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Prints the current volume or 🔇 if muted.
+
+case $BLOCK_BUTTON in
+	1) setsid -f "$TERMINAL" -e pulsemixer ;;
+	2) pamixer -t ;;
+	4) pamixer --allow-boost -i 1 ;;
+	5) pamixer --allow-boost -d 1 ;;
+	3) notify-send "📢 Volume module" "\- 🔇 if muted.
+- 🎧 if bluetooth.
+- Middle click to mute.
+- Scroll to change." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+vol="$(pamixer --get-volume)"
+device="$(pamixer --list-sinks | awk '/bluez/ {print "1"}')"
+
+if [ $(pamixer --get-mute) = true ]; then
+	echo [婢]
+elif [  "$device" = 1 ]; then
+	icon=""
+elif [ "$vol" -gt "60" ]; then
+	icon=" "
+elif [ "$vol" -lt "20" ]; then
+	icon=" "
+else
+	icon=" "
+fi
+
+echo "[vol $vol%]"

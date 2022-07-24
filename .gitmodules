@@ -79,3 +79,66 @@
 [submodule "config/nvim/plugged/Nvim-R"]
 	path = config/nvim/plugged/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R
+[submodule "config/nvim/plugged/ncm2"]
+	path = config/nvim/plugged/ncm2
+	url = https://github.com/ncm2/ncm2
+[submodule "config/nvim/plugged/nvim-yarp"]
+	path = config/nvim/plugged/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "config/nvim/plugged/ncm-R"]
+	path = config/nvim/plugged/ncm-R
+	url = https://github.com/gaalcaras/ncm-R
+[submodule "config/nvim/plugged/delimitMate"]
+	path = config/nvim/plugged/delimitMate
+	url = https://github.com/Raimondi/delimitMate
+[submodule "config/nvim/plugged/vim-surround"]
+	path = config/nvim/plugged/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "config/nvim/plugged/vim-commentary"]
+	path = config/nvim/plugged/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "config/nvim/plugged/vimtex"]
+	path = config/nvim/plugged/vimtex
+	url = https://github.com/lervag/vimtex
+[submodule "config/nvim/plugged/deoplete.nvim"]
+	path = config/nvim/plugged/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule "config/nvim/plugged/ultisnips"]
+	path = config/nvim/plugged/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "config/nvim/plugged/vim-snippets"]
+	path = config/nvim/plugged/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "config/nvim/plugged/nerdtree"]
+	path = config/nvim/plugged/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule "config/nvim/plugged/goyo.vim"]
+	path = config/nvim/plugged/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
+[submodule "config/nvim/plugged/vimagit"]
+	path = config/nvim/plugged/vimagit
+	url = https://github.com/jreybert/vimagit
+[submodule "config/nvim/plugged/vimling"]
+	path = config/nvim/plugged/vimling
+	url = https://github.com/lukesmithxyz/vimling
+[submodule "config/nvim/plugged/vimwiki"]
+	path = config/nvim/plugged/vimwiki
+	url = https://github.com/vimwiki/vimwiki
+[submodule "config/nvim/plugged/vim-airline"]
+	path = config/nvim/plugged/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "config/nvim/plugged/vim-css-color"]
+	path = config/nvim/plugged/vim-css-color
+	url = https://github.com/ap/vim-css-color
+[submodule "config/nvim/plugged/vim-renumber"]
+	path = config/nvim/plugged/vim-renumber
+	url = https://github.com/clarke/vim-renumber
+[submodule "config/nvim/plugged/gruvbox"]
+	path = config/nvim/plugged/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "config/nvim/plugged/plenary.nvim"]
+	path = config/nvim/plugged/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "config/nvim/plugged/todo-comments.nvim"]
+	path = config/nvim/plugged/todo-comments.nvim
+	url = https://github.com/folke/todo-comments.nvim

@@ -76,3 +76,6 @@
 [submodule "local/src/dwmblocks"]
 	path = local/src/dwmblocks
 	url = https://github.com/pahlse/dwmblocks
+[submodule "config/nvim/plugged/Nvim-R"]
+	path = config/nvim/plugged/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R
